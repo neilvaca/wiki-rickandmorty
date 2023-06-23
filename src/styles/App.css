@@ -1,0 +1,143 @@
+@keyframes color {
+  0% {
+    background: #a4fe63;
+  }
+
+  20% {
+    background: #70e31f;
+  }
+
+  40% {
+    background: #50bb00;
+  }
+
+  60% {
+    background: #b8ff4d;
+  }
+
+  80% {
+    background: #50bb00;
+  }
+
+  100% {
+    background: #70e31f;
+  }
+}
+
+body {
+  background: #a4fe63;
+  animation: color 7s infinite linear;
+}
+
+.header {
+  position: sticky;
+  top: 0px;
+  height: 6rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 600ms;
+  z-index: 1;
+}
+
+.header.hide {
+  top: -6rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.active > .page-link,
+.page-link.active {
+  background-color: black !important;
+}
+
+.pagination > li > a {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .hidden-tittle {
+    display: none;
+  }
+
+  .text-muted {
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  .justify-content-center.pagination {
+    --bs-pagination-padding-x: 0.5rem;
+    --bs-pagination-padding-y: 0.25rem;
+    --bs-pagination-font-size: 0.875rem;
+    --bs-pagination-border-radius: 0.25rem;
+  }
+
+  .me-auto.form-control {
+    min-height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+  }
+
+  .btn.btn-outline-danger {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: 0.25rem;
+  }
+
+  .btn.btn-outline-success {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: 0.25rem;
+  }
+}
+
+@media (max-width: 401px) {
+  .me-auto.form-control {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 371px) {
+  .hidden-logo {
+    display: none;
+  }
+
+  .page-item:first-child .page-link {
+    display: none;
+  }
+
+  .page-item:last-child .page-link {
+    display: none;
+  }
+}
+
+.blankPage {
+  padding-bottom: 120px;
+}
+
+h1 {
+  color: white;
+}
+
+nav {
+  height: 6rem;
+}
+
+.general-delay {
+  animation: fadeIn 900ms;
+}
+
+.image-delay {
+  animation: fadeIn 1.5s;
+}
