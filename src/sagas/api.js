@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+
 import { takeLatest, call, put, select, delay } from 'redux-saga/effects';
 import { types, selectors } from '../reducers/api';
 import * as middleware from '../middlewares/api';
@@ -78,6 +80,9 @@ function* fetchCharacters() {
       }
     }
   } catch (err) {
+    if (import.meta.env.VITE_SENTRY_ENABLED === 'true') {
+      Sentry.captureException(err);
+    }
     yield put({ type: types.FETCH_CHARACTERS_ERROR });
   }
 }

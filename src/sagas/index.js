@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+
 import { call, spawn, all } from 'redux-saga/effects';
 import api from './api';
 
@@ -20,5 +22,7 @@ export default function* rootSaga() {
 }
 
 export function handleError(err) {
-  console.error(err);
+  if (import.meta.env.VITE_SENTRY_ENABLED === 'true') {
+    Sentry.captureException(err);
+  }
 }

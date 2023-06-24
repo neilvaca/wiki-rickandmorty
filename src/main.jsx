@@ -34,6 +34,34 @@ if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
   getPerformance(app);
 }
 
+// Sentry
+import * as Sentry from '@sentry/react';
+import { version, name } from '../package.json';
+
+if (import.meta.env.VITE_SENTRY_ENABLED === 'true') {
+  Sentry.init({
+    environment: import.meta.env.VITE_ENVIRONMENT,
+    release: `${name}@${version}`,
+
+    dsn: `https://${import.meta.env.VITE_SENTRY_PUBLIC_KEY}@o${
+      import.meta.env.VITE_SENTRY_ORGANIZATION_ID
+    }.ingest.sentry.io/${import.meta.env.VITE_SENTRY_PROJECT_ID}`,
+    integrations: [
+      new Sentry.BrowserTracing({
+        // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
+        tracePropagationTargets: [
+          'localhost',
+          new RegExp(
+            `^https://${import.meta.env.VITE_FIREBASE_PROJECT_ID}.web/app`
+          ),
+        ],
+      }),
+    ],
+    // Performance Monitoring
+    tracesSampleRate: 1.0, // Capture 100% of the transactions, reduce in production!
+  });
+}
+
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: rootReducer,

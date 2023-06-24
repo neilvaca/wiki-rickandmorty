@@ -20,4 +20,5 @@ npm install react-router-dom
 npm install eslint eslint-plugin-react eslint-plugin-jsx-a11y --save-dev
 npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
 npm install firebase
+npm install @sentry/react
 ```
