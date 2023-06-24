@@ -80,7 +80,7 @@ const Home = ({
             {charactersResults &&
               Children.toArray(
                 charactersResults.map((value) => (
-                  <Col xs="auto">
+                  <Col xs="auto" key={value.id}>
                     <Card
                       id={value.id}
                       name={value.name}

@@ -43,8 +43,9 @@ export const OffCanvas = ({ show, handleClose, character }) => {
         <ListGroup as="ol" variant="flush" numbered>
           {character.episode &&
             Children.toArray(
-              character.episode.map((value, key) => (
+              character.episode.map((value) => (
                 <ListGroup.Item
+                  key={value.id}
                   as="li"
                   className="d-flex justify-content-between align-items-start">
                   <div className="ms-2 me-auto">
