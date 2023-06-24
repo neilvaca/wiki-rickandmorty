@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
 import { Pagination as Bootstrap } from 'react-bootstrap';
 
+import { getAnalytics, logEvent } from 'firebase/analytics';
+
 export const Pagination = ({ currentPage, changeCurrentPage, pages }) => {
   const handleChange = (page) => {
+    if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
+      const analytics = getAnalytics();
+      logEvent(analytics, 'pagination_handle_change', {
+        api_page: page,
+      });
+    }
+    
     changeCurrentPage(page);
   };
 

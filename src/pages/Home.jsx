@@ -14,6 +14,8 @@ import { Row, Col, Container, Image } from 'react-bootstrap';
 import { Standard } from './layouts/Standard';
 import { Dashboard } from './layouts/Dashboard';
 
+import { getAnalytics, logEvent } from 'firebase/analytics';
+
 const Home = ({
   hasErrorApi,
   isFetchingApi,
@@ -33,6 +35,14 @@ const Home = ({
 
   const handleClose = () => setShow(false);
   const handleShow = (character) => {
+    if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
+      const analytics = getAnalytics();
+      logEvent(analytics, 'off_canvas_handle_show', {
+        api_name: character.name,
+        api_image: character.image,
+      });
+    }
+    
     setShow(true);
     setCharacter(character);
   };

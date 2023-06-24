@@ -23,6 +23,8 @@ import { Link } from 'react-router-dom';
 import searchIcon from '../../assets/search.svg';
 import clearIcon from '../../assets/clear.svg';
 
+import { getAnalytics, logEvent } from 'firebase/analytics';
+
 const Header = ({
   showSearch,
   showTitle,
@@ -53,11 +55,23 @@ const Header = ({
   }, [scrollDirection]);
 
   const handleSubmit = (values, { setSubmitting }) => {
+    if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
+      const analytics = getAnalytics();
+      logEvent(analytics, 'header_handle_submit', {
+        api_search: values.search,
+      });
+    }
+
     changeCurrentPage(1);
     fetchCharacters(`{name: "${values.search}"}`);
   };
 
   const handleClear = (setFieldValue, setTouched) => {
+    if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
+      const analytics = getAnalytics();
+      logEvent(analytics, 'header_handle_clear');
+    }
+    
     setFieldValue('search', '');
     setTouched({});
     changeCurrentPage(1);
