@@ -39,6 +39,11 @@ export const Footer = ({ isEmpty }) => {
               </a>
             </section>
           </Col>
+          <Col md>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <span className="mx-2">|</span>
+            <Link to="/terms-of-use">Terms of Use</Link>
+          </Col>
         </Row>
       </Container>
     </footer>
