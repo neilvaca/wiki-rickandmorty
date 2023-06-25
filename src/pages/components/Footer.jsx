@@ -2,6 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import linkedinIcon from '../../assets/linkedin.svg';
 import githubIcon from '../../assets/github.svg';
+import { Link } from 'react-router-dom';
 
 export const Footer = ({ isEmpty }) => {
   const styles = {
@@ -20,7 +21,7 @@ export const Footer = ({ isEmpty }) => {
         <Row className="text-center">
           <Col md>
             <small className="text-muted">
-              Copyright © 2023 Neil Vaca. All Rights Reserved.
+              Neil Vaca © 2023
             </small>
           </Col>
           <Col md>

@@ -42,7 +42,7 @@ const Home = ({
         api_image: character.image,
       });
     }
-    
+
     setShow(true);
     setCharacter(character);
   };
