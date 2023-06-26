@@ -27,3 +27,60 @@ jobs:
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  build:
+    name: Build
+    needs: scan
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Create env file
+      run: |
+        echo VITE_ENVIRONMENT="pro" >> .env.pro
+        echo VITE_FIREBASE_ENABLED="true" >> .env.pro
+        echo VITE_FIREBASE_API_KEY=${{ secrets.VITE_FIREBASE_API_KEY }} >> .env.pro
+        echo VITE_FIREBASE_PROJECT_ID=${{ secrets.VITE_FIREBASE_PROJECT_ID }} >> .env.pro
+        echo VITE_FIREBASE_SENDER_ID=${{ secrets.VITE_FIREBASE_SENDER_ID }} >> .env.pro
+        echo VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }} >> .env.pro
+        echo VITE_FIREBASE_MEASUREMENT_ID=${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }} >> .env.pro
+        echo VITE_SENTRY_ENABLED="true" >> .env.pro
+        echo VITE_SENTRY_ORGANIZATION_ID=${{ secrets.VITE_SENTRY_ORGANIZATION_ID }} >> .env.pro
+        echo VITE_SENTRY_PROJECT_ID=${{ secrets.VITE_SENTRY_PROJECT_ID }} >> .env.pro
+        echo VITE_SENTRY_PUBLIC_KEY=${{ secrets.VITE_SENTRY_PUBLIC_KEY }} >> .env.pro
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build project
+      run: npm run build --if-present
+    - name: Archive Build
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist
+        
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - name: Download Build
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: Install firebase
+        run: npm install -g firebase-tools
+      - name: Deploy to Firebase
+        run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
