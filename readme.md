@@ -1,4 +1,5 @@
 [![Node.js CI](https://github.com/neilvaca/wiki-rickandmorty/actions/workflows/node.js.yml/badge.svg)](https://github.com/neilvaca/wiki-rickandmorty/actions/workflows/node.js.yml)
+[![Known Vulnerabilities](https://snyk.io/test/github/neilvaca/wiki-rickandmorty/badge.svg)](https://snyk.io/test/github/neilvaca/wiki-rickandmorty/badge.svg)
 [![Quality Gate Status](https://sonarqubenvaca.azurewebsites.net/api/project_badges/measure?project=wiki-rickandmorty&metric=alert_status&token=sqb_613ef15a3d1c93e92003f57b2e84ed5ff1df686b)](https://sonarqubenvaca.azurewebsites.net/dashboard?id=wiki-rickandmorty)
 [![Reliability Rating](https://sonarqubenvaca.azurewebsites.net/api/project_badges/measure?project=wiki-rickandmorty&metric=reliability_rating&token=sqb_613ef15a3d1c93e92003f57b2e84ed5ff1df686b)](https://sonarqubenvaca.azurewebsites.net/dashboard?id=wiki-rickandmorty)
 [![Security Rating](https://sonarqubenvaca.azurewebsites.net/api/project_badges/measure?project=wiki-rickandmorty&metric=security_rating&token=sqb_613ef15a3d1c93e92003f57b2e84ed5ff1df686b)](https://sonarqubenvaca.azurewebsites.net/dashboard?id=wiki-rickandmorty)
