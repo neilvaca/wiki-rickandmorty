@@ -30,3 +30,7 @@ npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
 npm install firebase
 npm install @sentry/react
 ```
+
+## demonstration
+
+[wiki rickandmorty](https://wiki-rickandmorty.web.app/)
