@@ -20,9 +20,7 @@ export const Footer = ({ isEmpty }) => {
       <Container>
         <Row className="text-center">
           <Col md>
-            <small className="text-muted">
-              Neil Vaca © 2023
-            </small>
+            <small className="text-muted">Neil Vaca © 2023</small>
           </Col>
           <Col md>
             <section>

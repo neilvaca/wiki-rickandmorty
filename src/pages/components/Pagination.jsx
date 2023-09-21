@@ -11,7 +11,7 @@ export const Pagination = ({ currentPage, changeCurrentPage, pages }) => {
         api_page: page,
       });
     }
-    
+
     changeCurrentPage(page);
   };
 

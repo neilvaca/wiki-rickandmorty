@@ -71,7 +71,7 @@ const Header = ({
       const analytics = getAnalytics();
       logEvent(analytics, 'header_handle_clear');
     }
-    
+
     setFieldValue('search', '');
     setTouched({});
     changeCurrentPage(1);

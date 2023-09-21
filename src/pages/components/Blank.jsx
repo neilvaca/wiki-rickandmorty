@@ -36,11 +36,13 @@ export const Blank = ({ message, type }) => {
         </Col>
       </Row>
 
-      <Row className="m-5">
-        <Col>
-          {type === BlankTypes.Loading && <span className="loader" />}
-          <Image src={srcImg} fluid />
-        </Col>
+      <Row className="m-5 justify-content-md-center">
+        {type === BlankTypes.Loading && <span className="m3 loader" />}
+        <Image
+          style={{ minWidth: '260px', maxHeight: '400px' }}
+          src={srcImg}
+          fluid
+        />
       </Row>
     </Container>
   );

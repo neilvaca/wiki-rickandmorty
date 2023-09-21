@@ -33,10 +33,18 @@ export const OffCanvas = ({ show, handleClose, character }) => {
         <Container className="text-center mb-2 image-delay">
           {loading ? (
             <>
-              <img src={placeholderImage} alt="Loading ..." />
+              <img
+                style={{ minHeight: '300px' }}
+                src={placeholderImage}
+                alt="Loading ..."
+              />
             </>
           ) : (
-            <img src={character.image} alt="Avatar" />
+            <img
+              style={{ minHeight: '300px' }}
+              src={character.image}
+              alt="Avatar"
+            />
           )}
         </Container>
 

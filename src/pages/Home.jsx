@@ -6,6 +6,7 @@ import {
 } from '../reducers/api';
 import { object, func, bool, array, number } from 'prop-types';
 
+import bannerImage from '../assets/banner.png';
 import { OffCanvas } from './components/OffCanvas';
 import { Card } from './components/Card';
 import { Pagination } from './components/Pagination';
@@ -73,7 +74,7 @@ const Home = ({
             xs={{ span: 10, offset: 1 }}
             xl={{ span: 8, offset: 2 }}
             className="justify-content-center mb-4 image-delay">
-            <Image fluid src="/banner.png" />
+            <Image style={{ minHeight: '121px' }} fluid src={bannerImage} />
           </Col>
 
           <Row className="justify-content-center mb-2">

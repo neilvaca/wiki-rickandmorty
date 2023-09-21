@@ -48,8 +48,10 @@ export const Card = ({
             <Bootstrap.Img
               className="image-delay"
               variant="top"
+              style={{ minHeight: '300px' }}
               src={placeholderImage}
               alt="Loading ..."
+              loading="lazy"
             />
             <Progress />
           </>
@@ -57,8 +59,10 @@ export const Card = ({
           <Bootstrap.Img
             variant="top"
             className="image-delay"
+            style={{ minHeight: '300px' }}
             src={image}
             alt="Avatar"
+            loading="lazy"
           />
         )}
       </div>
