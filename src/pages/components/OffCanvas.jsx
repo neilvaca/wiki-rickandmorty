@@ -32,13 +32,11 @@ export const OffCanvas = ({ show, handleClose, character }) => {
       <Bootstrap.Body>
         <Container className="text-center mb-2 image-delay">
           {loading ? (
-            <>
-              <img
-                style={{ minHeight: '300px' }}
-                src={placeholderImage}
-                alt="Loading ..."
-              />
-            </>
+            <img
+              style={{ minHeight: '300px' }}
+              src={placeholderImage}
+              alt="Loading ..."
+            />
           ) : (
             <img
               style={{ minHeight: '300px' }}
@@ -78,8 +76,4 @@ OffCanvas.propTypes = {
   character: PropTypes.object.isRequired,
 };
 
-OffCanvas.defaultProps = {
-  show: false,
-  handleClose: null,
-  character: null,
-};
+OffCanvas.defaultProps = {};

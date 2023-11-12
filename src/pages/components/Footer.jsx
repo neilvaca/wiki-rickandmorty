@@ -28,13 +28,23 @@ export const Footer = ({ isEmpty }) => {
                 target="_blank"
                 href="https://www.linkedin.com/in/neil-ronald-vaca-orrala/"
                 rel="noreferrer">
-                <img className="m-2" height={24} src={linkedinIcon} />
+                <img
+                  className="m-2"
+                  height={24}
+                  src={linkedinIcon}
+                  alt="Linkedin"
+                />
               </a>
               <a
                 target="_blank"
                 href="https://github.com/neilvaca"
                 rel="noreferrer">
-                <img className="m-2" height={24} src={githubIcon} />
+                <img
+                  className="m-2"
+                  height={24}
+                  src={githubIcon}
+                  alt="Github"
+                />
               </a>
             </section>
           </Col>

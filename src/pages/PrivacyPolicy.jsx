@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { actions as apiAction } from '../reducers/api';
 
@@ -73,6 +74,11 @@ const PrivacyPolicy = ({ fetchCharacters, changeCurrentPage }) => {
       </Container>
     </Standard>
   );
+};
+
+PrivacyPolicy.propTypes = {
+  fetchCharacters: PropTypes.func,
+  changeCurrentPage: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({

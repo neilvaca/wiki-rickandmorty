@@ -4,7 +4,7 @@ import {
   actions as apiAction,
   selectors as apiSelector,
 } from '../reducers/api';
-import { object, func, bool, array, number } from 'prop-types';
+import { object, func, bool, array, number, string } from 'prop-types';
 
 import bannerImage from '../assets/banner.png';
 import { OffCanvas } from './components/OffCanvas';
@@ -58,7 +58,7 @@ const Home = ({
   }, [charactersResults]);
 
   return (
-    <Standard showSearch isEmpty={!hasData || isFetchingApi}>
+    <Standard showSearch isEmpty={isFetchingApi || !hasData}>
       <Dashboard
         hasError={hasErrorApi}
         isFetching={isFetchingApi}
@@ -114,6 +114,7 @@ Home.propTypes = {
   charactersResults: array,
   fetchCharacters: func,
   changeCurrentPage: func,
+  searchFilter: string,
 };
 
 Home.defaultProps = {

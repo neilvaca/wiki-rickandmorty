@@ -21,7 +21,6 @@ Standard.propTypes = {
 };
 
 Standard.defaultProps = {
-  children: undefined,
   showSearch: false,
   isEmpty: false,
   showTitle: false,

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { actions as apiAction } from '../reducers/api';
 
@@ -31,8 +32,8 @@ const TermsOfUse = ({ fetchCharacters, changeCurrentPage }) => {
                 rel="noreferrer">
                 The Rick and Morty API
               </a>
-              . You must not use the site for illegal activities or activities
-              that infringe upon the rights of third parties.
+              {'.'} You must not use the site for illegal activities or
+              activities that infringe upon the rights of third parties.
             </div>
           </ListGroup.Item>
           <ListGroup.Item
@@ -68,15 +69,20 @@ const TermsOfUse = ({ fetchCharacters, changeCurrentPage }) => {
                 rel="noreferrer">
                 The Rick and Morty API
               </a>
-              . Additionally, we disclaim any liability for errors or technical
-              failures related to Sentry and Firebase services. Use the
-              information and services at your own risk.
+              {'.'} Additionally, we disclaim any liability for errors or
+              technical failures related to Sentry and Firebase services. Use
+              the information and services at your own risk.
             </div>
           </ListGroup.Item>
         </ListGroup>
       </Container>
     </Standard>
   );
+};
+
+TermsOfUse.propTypes = {
+  fetchCharacters: PropTypes.func,
+  changeCurrentPage: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({

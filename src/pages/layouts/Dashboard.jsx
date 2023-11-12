@@ -8,14 +8,14 @@ export const Dashboard = ({ children, hasError, isFetching, hasData }) => {
       return <Blank type={BlankTypes.Error} message="Internal Error" />;
     } else if (isFetching) {
       return <Blank type={BlankTypes.Loading} />;
+    } else if (hasData) {
+      return children;
+    } else {
+      return (
+        <Blank type={BlankTypes.Empty} message="No data with the search" />
+      );
     }
-    return hasData ? (
-      children
-    ) : (
-      <Blank type={BlankTypes.Empty} message="No data with the search" />
-    );
   }
-
   return getChildren(hasError, isFetching, hasData, children);
 };
 

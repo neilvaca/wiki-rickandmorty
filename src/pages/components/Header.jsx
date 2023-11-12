@@ -54,7 +54,7 @@ const Header = ({
     };
   }, [scrollDirection]);
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values) => {
     if (import.meta.env.VITE_FIREBASE_ENABLED === 'true') {
       const analytics = getAnalytics();
       logEvent(analytics, 'header_handle_submit', {
@@ -140,7 +140,7 @@ const Header = ({
                       {isFetchingApi ? (
                         <Spinner size="sm" />
                       ) : (
-                        <img src={searchIcon} />
+                        <img src={searchIcon} alt="search" />
                       )}
                     </Button>
 
@@ -151,7 +151,7 @@ const Header = ({
                       {isFetchingApi ? (
                         <Spinner size="sm" />
                       ) : (
-                        <img src={clearIcon} />
+                        <img src={clearIcon} alt="clear" />
                       )}
                     </Button>
                   </Stack>
@@ -169,6 +169,8 @@ Header.propTypes = {
   showSearch: PropTypes.bool,
   isFetchingApi: PropTypes.bool,
   showTitle: PropTypes.bool,
+  fetchCharacters: PropTypes.func,
+  changeCurrentPage: PropTypes.func,
 };
 
 Header.defaultProps = {

@@ -87,19 +87,20 @@ export const Card = ({
 };
 
 Card.propTypes = {
-  status: PropTypes.string.isRequired,
-  species: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  status: PropTypes.string,
+  species: PropTypes.string,
+  episode: PropTypes.array,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  image: PropTypes.string,
   onClick: PropTypes.func,
-  backgroundColor: PropTypes.string,
 };
 
 Card.defaultProps = {
-  backgroundColor: null,
   name: null,
   image: null,
   status: null,
   species: null,
+  episode: null,
   onClick: undefined,
 };
