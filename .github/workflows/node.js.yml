@@ -47,10 +47,10 @@ jobs:
         echo VITE_SENTRY_ORGANIZATION_ID=${{ secrets.VITE_SENTRY_ORGANIZATION_ID }} >> .env.pro
         echo VITE_SENTRY_PROJECT_ID=${{ secrets.VITE_SENTRY_PROJECT_ID }} >> .env.pro
         echo VITE_SENTRY_PUBLIC_KEY=${{ secrets.VITE_SENTRY_PUBLIC_KEY }} >> .env.pro
-    - name: Use Node.js 14.x
+    - name: Use Node.js 20.x
       uses: actions/setup-node@v3
       with:
-        node-version: 14.x
+        node-version: 20.x
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
